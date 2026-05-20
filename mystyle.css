@@ -1,14 +1,18 @@
        .container {
             display: flex;
             flex-flow: row wrap;
+            flex-wrap: wrap;
             justify-content: space-around;
             padding: 0;
-            margin: 0;
+            margin: 0 auto;
             list-style: none;
+            width: 80%;
+            gap: 0;
         }
         .flex-item {
+            flex: 0 0 calc(100% / 16);
             background-color: black;
-            height: 30px;
-            width: 30px;
             margin: 0;
+            padding: 0;
+            aspect-ratio: 1 / 1;
         }
