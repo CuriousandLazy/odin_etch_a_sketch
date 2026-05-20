@@ -18,6 +18,7 @@ let randomColor = colorOptions[Math.floor(Math.random() * colorOptions.length)];
 
 for (let i = 0; i < 256; i++) {
     const div = document.createElement('div');
+    div.style
     div.classList.add('flex-item');
     container.appendChild(div);
     const flexItems = document.querySelectorAll('.flex-item');
@@ -44,11 +45,25 @@ button.addEventListener('click', () => {
 
 });
 
-    //Add event listener to each div that changes its background color to black when hovered over
-    container.addEventListener('mouseover', (e) => {
-        if (e.target.classList.contains('flex-item')) {
-            e.target.style.backgroundColor = colorOptions[Math.floor(Math.random() * colorOptions.length)];
-        }
+
+// Single event listener for all interactions
+container.addEventListener('mouseover', (e) => {
+    if (e.target.classList.contains('flex-item')) {
+        // Set random color (only if not already set, or set every time)
+        const randomColor = colorOptions[Math.floor(Math.random() * colorOptions.length)];
+        e.target.style.backgroundColor = randomColor;
+        
+        // Get current opacity, default to 0.1 if not set
+        let currentOpacity = parseFloat(e.target.style.opacity);
+        if (isNaN(currentOpacity)) currentOpacity = 0.1;
+        
+        // Increase opacity by 0.1, max 1.0
+        let newOpacity = currentOpacity + 0.1;
+        if (newOpacity > 1.0) newOpacity = 1.0;
+        e.target.style.opacity = newOpacity;
+    }
 });
+
+
 
 
