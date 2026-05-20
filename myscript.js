@@ -1,5 +1,20 @@
 //Make initial 16 by 16 grid of divs
 const container = document.querySelector('.container'); 
+const colorOptions = [
+    "#FF4136", // Red
+    "#FF851B", // Orange
+    "#FFDC00", // Yellow
+    "#2ECC40", // Green
+    "#0074D9", // Blue
+    "#001F3F", // Navy
+    "#7FDBFF", // Light Blue
+    "#B10DC9", // Purple
+    "#F012BE", // Magenta
+    "#FF6EB4", // Hot Pink
+    "#39CCCC", // Teal
+    "#3D9970"  // Olive
+];
+let randomColor = colorOptions[Math.floor(Math.random() * colorOptions.length)];
 
 for (let i = 0; i < 256; i++) {
     const div = document.createElement('div');
@@ -7,9 +22,7 @@ for (let i = 0; i < 256; i++) {
     container.appendChild(div);
     const flexItems = document.querySelectorAll('.flex-item');
     flexItems.forEach(item => {
-    item.addEventListener('mouseover', () => {
-        item.style.backgroundColor = 'red';
-    });
+
 });
 }
 
@@ -34,7 +47,7 @@ button.addEventListener('click', () => {
     //Add event listener to each div that changes its background color to black when hovered over
     container.addEventListener('mouseover', (e) => {
         if (e.target.classList.contains('flex-item')) {
-            e.target.style.backgroundColor = 'red';
+            e.target.style.backgroundColor = colorOptions[Math.floor(Math.random() * colorOptions.length)];
         }
 });
 
